@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkwwe5w8j7l3d"]
+
+[ext_resource type="Script" path="res://Sprites/joystick/control_joystick.gd" id="1_ddkfh"]
+[ext_resource type="Texture2D" uid="uid://bf8c3ul8nj50d" path="res://Sprites/joystick/keys.png" id="2_x1wi6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usb0n"]
+atlas = ExtResource("2_x1wi6")
+region = Rect2(209, 66, 12, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muiyh"]
+atlas = ExtResource("2_x1wi6")
+region = Rect2(194, 39, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqodu"]
+atlas = ExtResource("2_x1wi6")
+region = Rect2(182, 52, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghaes"]
+atlas = ExtResource("2_x1wi6")
+region = Rect2(194, 52, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8831u"]
+atlas = ExtResource("2_x1wi6")
+region = Rect2(207, 52, 12, 12)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("shoot_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ddkfh")
+shoot_button = NodePath("TouchScreenButton3")
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(953, 451)
+scale = Vector2(9, 9)
+texture_normal = SubResource("AtlasTexture_usb0n")
+action = "Shoot"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(138, 414)
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_muiyh")
+action = "Up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control"]
+position = Vector2(53, 465)
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_uqodu")
+action = "Left"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control"]
+position = Vector2(140, 527)
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_ghaes")
+action = "Down"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Control"]
+position = Vector2(234, 465)
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_8831u")
+action = "Right"
+
+[connection signal="pressed" from="TouchScreenButton3" to="." method="_on_touch_screen_button_3_pressed"]

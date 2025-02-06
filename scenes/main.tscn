@@ -1,0 +1,158 @@
+[gd_scene load_steps=15 format=3 uid="uid://e0y6sx8ip5gl"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_nph5e"]
+[ext_resource type="Texture2D" uid="uid://c5ldqjo7tf588" path="res://Sprites/ForestBackground.png" id="1_sjric"]
+[ext_resource type="PackedScene" uid="uid://3eawd8fqwxu" path="res://scenes/map.tscn" id="2_1dh2b"]
+[ext_resource type="Texture2D" uid="uid://c6ouy6n440fm4" path="res://Sprites/Foxy.png" id="2_dy62p"]
+[ext_resource type="Texture2D" uid="uid://hecrnd1mpc76" path="res://Sprites/Slimer.png" id="3_o6pnf"]
+[ext_resource type="Texture2D" uid="uid://q2i6cqd1pil5" path="res://Sprites/Bullet.png" id="4_bxri3"]
+[ext_resource type="FontFile" uid="uid://camgmld80nkxq" path="res://Uranus_Pixel_11Px.ttf" id="5_bksu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4nqy"]
+atlas = ExtResource("2_dy62p")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cw4tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4nqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mu8h"]
+atlas = ExtResource("3_o6pnf")
+region = Rect2(0, 0, 41, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jgkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mu8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_08x3t"]
+font = ExtResource("5_bksu8")
+font_size = 98
+outline_size = 40
+outline_color = Color(0.282353, 0.568627, 0.239216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4esgy"]
+font = ExtResource("5_bksu8")
+font_size = 32
+outline_size = 20
+outline_color = Color(0.282353, 0.568627, 0.239216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7bgd3"]
+font = ExtResource("5_bksu8")
+font_size = 32
+outline_size = 5
+outline_color = Color(0.282353, 0.568627, 0.239216, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nph5e")
+game_scene = ExtResource("2_1dh2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-485, -143)
+texture = ExtResource("1_sjric")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-248, -143)
+texture = ExtResource("1_sjric")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-544, -52)
+sprite_frames = SubResource("SpriteFrames_cw4tk")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-406, -55)
+sprite_frames = SubResource("SpriteFrames_4jgkb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-514, -46)
+texture = ExtResource("4_bxri3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-489, -46)
+texture = ExtResource("4_bxri3")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-470, -46)
+texture = ExtResource("4_bxri3")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(-449, -46)
+texture = ExtResource("4_bxri3")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(-433, -46)
+texture = ExtResource("4_bxri3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-473, -76)
+zoom = Vector2(4.64, 4.64)
+
+[node name="title" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="title"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = 208.0
+offset_right = 298.0
+offset_bottom = 281.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.282353, 0.568627, 0.239216, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bksu8")
+theme_override_font_sizes/font_size = 64
+text = "开始游戏"
+flat = true
+
+[node name="Label" type="Label" parent="title"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -245.0
+offset_top = 128.0
+offset_right = 245.0
+offset_bottom = 227.0
+grow_horizontal = 2
+text = "射击史莱姆"
+label_settings = SubResource("LabelSettings_08x3t")
+
+[node name="Label2" type="Label" parent="title"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 106.0
+offset_top = -88.0
+offset_right = 282.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "作者:BREEZE"
+label_settings = SubResource("LabelSettings_4esgy")
+
+[node name="Label3" type="Label" parent="title"]
+offset_left = 530.0
+offset_top = 445.0
+offset_right = 1151.0
+offset_bottom = 638.0
+text = "游戏规则:玩家通过WASD进行移动，点击空格发射子弹攻击史莱姆。命中后将会获得一定分数，若玩家触碰到史莱姆将会游戏失败，若史莱姆走出地图边界玩家将会扣除20分，分数小于0则游戏失败。"
+label_settings = SubResource("LabelSettings_7bgd3")
+autowrap_mode = 3
+
+[connection signal="pressed" from="title/Button" to="." method="_on_button_pressed"]
